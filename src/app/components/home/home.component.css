@@ -1,0 +1,32 @@
+* {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--text-color);
+}
+
+.container {
+  display: flex;
+  margin-top: 5rem;
+  padding: .5rem;
+  border-radius: .5rem;
+}
+
+.greetings {
+  width: 50%;
+  font-size: 4rem;
+  color: var(--main-color);
+  letter-spacing: .2rem;
+}
+
+.actions {
+  width: 50%;
+  color: var(--main-color);
+  font-size: 2rem;
+  letter-spacing: .1rem;
+}

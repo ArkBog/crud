@@ -1,4 +1,7 @@
-.container {
-  width: 1000px;
-  margin: auto;
+.logo {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .3rem;
 }
