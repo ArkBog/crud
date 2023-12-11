@@ -1,0 +1,1 @@
+*{width:1000px;margin-left:auto;margin-right:auto;text-align:center;box-sizing:border-box}body{background-color:var(--text-color)}.container{margin-top:3rem}.container form{display:flex;justify-content:space-between;flex-wrap:wrap}.container form mat-form-field,.container form mat-error{width:45%}.option{width:100%}

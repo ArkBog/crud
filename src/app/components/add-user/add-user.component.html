@@ -1,0 +1,47 @@
+<div class="container">
+    <form>
+            <mat-form-field>
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Name" [formControl]="name" required>
+                <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Surname</mat-label>
+              <input matInput placeholder="Surname" [formControl]="surname" required>
+                <mat-error *ngIf="surname.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Adress</mat-label>
+              <textarea matInput placeholder="Adress" [formControl]="adress" required></textarea>
+                <mat-error *ngIf="adress.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Postal code</mat-label>
+              <input matInput placeholder="Postal code" maxlength="5" [formControl]="postalCode" required>
+                <mat-error *ngIf="postalCode.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input type="email" matInput placeholder="email@email.com"  [formControl]="email" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Phone number</mat-label>
+              <input type="tel" matInput placeholder="123456789" maxlength="9" [formControl]="phone" required>
+                <mat-error *ngIf="phone.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Status</mat-label>
+              <mat-select [formControl]='status'>
+                  <mat-option class="option" value="inWork">In work</mat-option>
+                  <mat-option class="option" value="finishedSuccessfully">Finished succesfully</mat-option>
+                  <mat-option class="option" value="customerDecline">Customer decline</mat-option>
+              </mat-select>
+              <mat-error *ngIf="status.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Comment</mat-label>
+              <textarea matInput placeholder="Comment" [formControl]="comment"></textarea>
+            </mat-form-field>
+    </form>
+</div>
