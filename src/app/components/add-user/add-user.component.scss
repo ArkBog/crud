@@ -11,16 +11,38 @@ body {
 }
 .container {
   margin-top: 3rem;
-
-  form {
+  form{
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    mat-form-field, mat-error,{
-      width: 45%;
+    mat-form-field{
+      width: 40%;
+      margin-bottom: 2rem;
+    }
+    mat-error{
+      width: 40%;
+    }
+
+    button{
+      width: 70%;
     }
   }
 }
-.option{
+mat-option{
   width: 100%;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .container{
+      width: 100%;
+      form{
+        flex-direction: column;
+        mat-form-field{
+          width: 80%;
+        }
+      }
+
+  }
 }
