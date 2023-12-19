@@ -1,0 +1,24 @@
+{
+    "customers": [
+        {
+            "id": 1,
+            "name": "Jan",
+            "surname": "Kowalski",
+            "adress": "Ul. Lwowska 5/14 Kraków",
+            "postalCode": 30000,
+            "status": "finished",
+            "comments": "lorem ipsum",
+            "employeeId": 1
+        },
+        {
+            "id": 2,
+            "name": "Maria",
+            "surname": "Anna",
+            "adress": "Ul. Szwedzka 5/14 Kraków",
+            "postalCode": 30100,
+            "status": "inWork",
+            "comments": "",
+            "employeeId": 1
+        }
+    ]
+  }
