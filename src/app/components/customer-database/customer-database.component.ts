@@ -10,24 +10,37 @@ import { CustomersDatabaseService } from 'src/app/services/customers-database.se
   styleUrls: ['./customer-database.component.scss']
 })
 export class CustomerDatabaseComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
+  displayedColumns: string[] = ['id', 'name', 'adress', 'postal code', 'status'];
   dataSource: MatTableDataSource<any>;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
-  @ViewChild(MatSort) sort: MatSort | undefined;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
-  customers:any = []
+  customers: any = [];
 
-  constructor(private customersDatabaseService: CustomersDatabaseService ){
-    this.dataSource = new MatTableDataSource(users);
-  }
-  ngAfterViewInit(): void {
-    throw new Error('Method not implemented.');
+  constructor(private customersDatabaseService: CustomersDatabaseService) {
+    this.dataSource = new MatTableDataSource();
+    this.sort = new MatSort();
   }
 
-  ngOnInit(){
-    this.customersDatabaseService.getCustomers().subscribe((data:any) => {
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  ngOnInit() {
+    this.customersDatabaseService.getCustomers().subscribe((data: any) => {
       this.customers = data;
-    })
+      this.dataSource.data = this.customers;  // Assign data to the MatTableDataSource
+    });
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 }
