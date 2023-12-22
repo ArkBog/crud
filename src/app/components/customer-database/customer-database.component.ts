@@ -10,7 +10,7 @@ import { CustomersDatabaseService } from 'src/app/services/customers-database.se
   styleUrls: ['./customer-database.component.scss']
 })
 export class CustomerDatabaseComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'adress', 'postal code', 'status'];
+  displayedColumns: string[] = ['id', 'name', 'adress', 'postal code', 'status', 'actions'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
