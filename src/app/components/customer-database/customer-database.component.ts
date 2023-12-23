@@ -49,7 +49,8 @@ export class CustomerDatabaseComponent implements AfterViewInit {
   }
 
   editCustomer(arg:any, i:any){
-    console.log(arg, i)
+    this.customersDatabaseService.customerValue = arg;
+    console.log(arg)
   }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
@@ -60,12 +61,3 @@ export class CustomerDatabaseComponent implements AfterViewInit {
   }
 }
 
-// @Component({
-//   selector: 'dialog-animations-example-dialog',
-//   templateUrl: 'dialog-animations-example-dialog.html',
-  
-// })
-
-// export class DialogAnimationsExampleDialog {
-//   constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>, public user: AddUserComponent) {}
-// }

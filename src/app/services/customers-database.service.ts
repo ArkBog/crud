@@ -21,6 +21,8 @@ export class CustomersDatabaseService {
     employeeId: 0
   }
 
+  customerValue = {};
+
   constructor(private http: HttpClient) { }
 
   getCustomers(){
