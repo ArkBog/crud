@@ -20,6 +20,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './components/customer-database/dialog/dialog.component';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import {MatIconModule} from '@angular/material/icon';
     DashboardComponent,
     HomeComponent,
     CustomerDatabaseComponent,
-    AddUserComponent
+    AddUserComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

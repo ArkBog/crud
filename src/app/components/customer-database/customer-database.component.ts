@@ -1,8 +1,12 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CustomersDatabaseService } from 'src/app/services/customers-database.service';
+import { AddUserComponent } from '../add-user/add-user.component';
+import { DialogComponent } from './dialog/dialog.component';
+
 
 @Component({
   selector: 'app-customer-database',
@@ -18,7 +22,7 @@ export class CustomerDatabaseComponent implements AfterViewInit {
 
   customers: any = [];
 
-  constructor(private customersDatabaseService: CustomersDatabaseService) {
+  constructor(private customersDatabaseService: CustomersDatabaseService, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
     this.sort = new MatSort();
   }
@@ -43,4 +47,25 @@ export class CustomerDatabaseComponent implements AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  editCustomer(arg:any, i:any){
+    console.log(arg, i)
+  }
+
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(DialogComponent, {
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
 }
+
+// @Component({
+//   selector: 'dialog-animations-example-dialog',
+//   templateUrl: 'dialog-animations-example-dialog.html',
+  
+// })
+
+// export class DialogAnimationsExampleDialog {
+//   constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>, public user: AddUserComponent) {}
+// }
