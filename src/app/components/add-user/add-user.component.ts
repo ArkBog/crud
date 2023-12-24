@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { CustomersDatabaseService } from 'src/app/services/customers-database.service';
+import { Customer } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-add-user',
@@ -43,9 +44,39 @@ export class AddUserComponent {
     ]),
   })
 
+  customerData: any = {
+    id: 0,
+    name: '',
+    surname: '',
+    adress: '',
+    postalCode: 0,
+    status: '',
+    comments: '',
+    employeeId: 0
+  }
+  id: number = 0;
+  employeeId: number = 0;
+
+
   onSubmit(){
     if(this.customer.valid){
-      console.log(this.customer)
+      if(this.customersDatabaseService.customerUpdating === true){
+        this.customerData = {
+          id: this.id,
+          name: this.customer.value.name,
+          surname: this.customer.value.surname,
+          adress: this.customer.value.adress,
+          postalCode: this.customer.value.postalCode,
+          status: this.customer.value.status,
+          comments: '',
+          employeeId: this.employeeId
+        };
+        this.customersDatabaseService.updateCustomer(this.customerData).subscribe({
+          next: (data) => console.log(data),
+          error: (err) => {console.log(err)}
+        });
+      }
+      // console.log(this.customerData)
     }
   }
 

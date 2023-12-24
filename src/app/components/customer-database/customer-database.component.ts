@@ -33,10 +33,7 @@ export class CustomerDatabaseComponent implements AfterViewInit {
   }
 
   ngOnInit() {
-    this.customersDatabaseService.getCustomers().subscribe((data: any) => {
-      this.customers = data;
-      this.dataSource.data = this.customers;  // Assign data to the MatTableDataSource
-    });
+    this.loadData()
   }
 
   applyFilter(event: Event) {
@@ -46,6 +43,13 @@ export class CustomerDatabaseComponent implements AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  loadData(){
+    this.customersDatabaseService.getCustomers().subscribe((data: any) => {
+      this.customers = data;
+      this.dataSource.data = this.customers;  // Assign data to the MatTableDataSource
+    });
   }
 
   editCustomer(arg:any, i:any){
@@ -58,6 +62,7 @@ export class CustomerDatabaseComponent implements AfterViewInit {
       enterAnimationDuration,
       exitAnimationDuration,
     });
+    this.customersDatabaseService.customerUpdating = true;
   }
 }
 

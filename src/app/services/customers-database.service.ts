@@ -22,6 +22,7 @@ export class CustomersDatabaseService {
   }
 
   customerValue = {};
+  customerUpdating: boolean = false;
 
   constructor(private http: HttpClient) { }
 
@@ -31,7 +32,7 @@ export class CustomersDatabaseService {
 
   updateCustomer(body:any):Observable<Customer>{
 
-    return this.http.put<Customer>('http://localhost:3000/customers/1', body)
+    return this.http.put<Customer>(`http://localhost:3000/customers/${body.id + 1}`, body)
   }
 
 }
