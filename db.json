@@ -2,7 +2,7 @@
   "customers": [
     {
       "id": 1,
-      "name": "aaaa",
+      "name": "Stefan",
       "surname": "Kowalski",
       "adress": "Ul. Lwowska 5/14 Kraków",
       "postalCode": 30000,

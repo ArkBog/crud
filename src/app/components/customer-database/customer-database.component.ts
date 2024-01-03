@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { CustomersDatabaseService } from 'src/app/services/customers-database.service';
 import { AddUserComponent } from '../add-user/add-user.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { DialogComponent } from './dialog/dialog.component';
   templateUrl: './customer-database.component.html',
   styleUrls: ['./customer-database.component.scss']
 })
-export class CustomerDatabaseComponent implements AfterViewInit {
+export class CustomerDatabaseComponent implements AfterViewInit, OnDestroy {
   displayedColumns: string[] = ['id', 'name', 'adress', 'postal code', 'status', 'actions'];
   dataSource: MatTableDataSource<any>;
 
@@ -21,10 +22,17 @@ export class CustomerDatabaseComponent implements AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
 
   customers: any = [];
+  private subscription: Subscription;
 
   constructor(private customersDatabaseService: CustomersDatabaseService, public dialog: MatDialog) {
+    this.subscription = this.customersDatabaseService.updatedView.subscribe(()=>{
+      this.loadData()
+    })
     this.dataSource = new MatTableDataSource();
     this.sort = new MatSort();
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   ngAfterViewInit() {

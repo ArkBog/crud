@@ -75,9 +75,9 @@ export class AddUserComponent {
           next: (data) => console.log(data),
           error: (err) => {console.log(err)}
         });
-      }
-      // console.log(this.customerData)
+      };
     }
+    this.runUpdateView()
   }
 
   getData(arg: any){
@@ -112,6 +112,9 @@ export class AddUserComponent {
 
   ngOnInit(){
     this.getData(this.customersDatabaseService.customerValue)
+  }
+  runUpdateView(){
+    this.customersDatabaseService.updateViewFn()
   }
 
 }

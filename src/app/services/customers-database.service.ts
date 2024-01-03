@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Customer } from '../interfaces';
 
 @Injectable({
@@ -24,6 +24,9 @@ export class CustomersDatabaseService {
   customerValue = {};
   customerUpdating: boolean = false;
 
+  private updateViewSource = new Subject<void>();
+  updatedView = this.updateViewSource.asObservable();
+
   constructor(private http: HttpClient) { }
 
   getCustomers(){
@@ -34,6 +37,12 @@ export class CustomersDatabaseService {
 
     return this.http.put<Customer>(`http://localhost:3000/customers/${body.id + 1}`, body)
   }
+
+  updateViewFn(){
+    this.updateViewSource.next()
+  }
+
+
 
 }
 
