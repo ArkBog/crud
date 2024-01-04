@@ -35,11 +35,15 @@ export class CustomersDatabaseService {
 
   updateCustomer(body:any):Observable<Customer>{
 
-    return this.http.put<Customer>(`http://localhost:3000/customers/${body.id + 1}`, body)
+    return this.http.put<Customer>(`http://localhost:3000/customers/${body.id}`, body)
   }
 
   updateViewFn(){
     this.updateViewSource.next()
+  }
+
+  deleteCustomerService(body:any):Observable<Customer>{
+    return this.http.delete<Customer>(`http://localhost:3000/customers/${body.id}`)
   }
 
 

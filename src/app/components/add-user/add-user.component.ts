@@ -107,7 +107,7 @@ export class AddUserComponent {
         Validators.required,
       ]),
     })
-    console.log('to jest z add user', this.customer)
+    this.id = arg.id
   }
 
   ngOnInit(){

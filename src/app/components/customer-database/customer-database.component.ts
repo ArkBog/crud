@@ -72,5 +72,12 @@ export class CustomerDatabaseComponent implements AfterViewInit, OnDestroy {
     });
     this.customersDatabaseService.customerUpdating = true;
   }
+  deleteCustomer(arg:any){
+    this.customersDatabaseService.deleteCustomerService(arg).subscribe({
+      next: (data) => console.log(data),
+      error: (err) => {console.log(err)}
+    });
+    this.loadData()
+  }
 }
 
