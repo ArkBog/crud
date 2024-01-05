@@ -23,6 +23,7 @@ export class CustomersDatabaseService {
 
   customerValue = {};
   customerUpdating: boolean = false;
+  customersDatabase = [];
 
   private updateViewSource = new Subject<void>();
   updatedView = this.updateViewSource.asObservable();
@@ -44,6 +45,10 @@ export class CustomersDatabaseService {
 
   deleteCustomerService(body:any):Observable<Customer>{
     return this.http.delete<Customer>(`http://localhost:3000/customers/${body.id}`)
+  }
+
+  addCustomer(body:any){
+    return this.http.post('http://localhost:3000/customers', body)
   }
 
 

@@ -56,6 +56,7 @@ export class AddUserComponent {
   }
   id: number = 0;
   employeeId: number = 0;
+  customers = this.customersDatabaseService.customersDatabase
 
 
   onSubmit(){
@@ -75,7 +76,23 @@ export class AddUserComponent {
           next: (data) => console.log(data),
           error: (err) => {console.log(err)}
         });
-      };
+        this.customersDatabaseService.customerUpdating = false
+      }
+      else{
+        this.customerData = {
+          name: this.customer.value.name,
+          surname: this.customer.value.surname,
+          adress: this.customer.value.adress,
+          postalCode: this.customer.value.postalCode,
+          status: this.customer.value.status,
+          comments: '',
+          employeeId: this.employeeId
+        };
+        this.customersDatabaseService.addCustomer(this.customerData).subscribe({
+          next: (data) => console.log(data),
+          error: (err) => {console.log(err)}
+        })
+      }
     }
     this.runUpdateView()
   }

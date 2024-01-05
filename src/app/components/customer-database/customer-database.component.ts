@@ -56,7 +56,9 @@ export class CustomerDatabaseComponent implements AfterViewInit, OnDestroy {
   loadData(){
     this.customersDatabaseService.getCustomers().subscribe((data: any) => {
       this.customers = data;
-      this.dataSource.data = this.customers;  // Assign data to the MatTableDataSource
+      this.dataSource.data = this.customers;
+      this.customersDatabaseService.customersDatabase = data;
+      console.log("to jest dlugosc", this.customersDatabaseService.customersDatabase.length)
     });
   }
 

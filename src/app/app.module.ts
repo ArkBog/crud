@@ -22,6 +22,7 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './components/customer-database/dialog/dialog.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { DialogComponent } from './components/customer-database/dialog/dialog.co
     CustomerDatabaseComponent,
     AddUserComponent,
     DialogComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

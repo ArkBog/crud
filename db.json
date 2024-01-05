@@ -49,16 +49,6 @@
       "status": "inWork",
       "comments": "",
       "employeeId": 1
-    },
-    {
-      "id": 6,
-      "name": "Stefan",
-      "surname": "Kowalski",
-      "adress": "Ul. Lwowska 5/14 Kraków",
-      "postalCode": 30000,
-      "status": "finished",
-      "comments": "",
-      "employeeId": 0
     }
   ]
 }
