@@ -50,5 +50,17 @@
       "comments": "",
       "employeeId": 1
     }
+  ],
+  "users":[
+    {
+      "login": "test0",
+      "password": "test",
+      "employeeId": 0
+    },
+    {
+      "login": "test",
+      "password": "test",
+      "employeeId": 1
+    }
   ]
 }

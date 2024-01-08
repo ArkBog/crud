@@ -1,1 +1,30 @@
-<p>login works!</p>
+<div class="container">
+    <div class="text">
+        Hello! You should log in first.
+    </div>
+  <form [formGroup]="logIn" (ngSubmit)="submit(login.value, password.value)">
+    <mat-form-field>
+      <mat-label>Login</mat-label>
+      <input
+        #login
+        matInput
+        type="text"
+        placeholder="Login"
+        formControlName="login"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input
+        #password
+        matInput
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+        required
+      />
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" class="button-full">Log in</button>
+  </form>
+</div>

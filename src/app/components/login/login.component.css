@@ -1,0 +1,48 @@
+* {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.container {
+  margin-top: 3rem;
+}
+
+.container .text {
+  width: 50%;
+  color: var(--main-color);
+  font-size: 2rem;
+  letter-spacing: .1rem;
+  margin-bottom: 3rem;
+}
+
+.container form {
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+}
+
+.container form mat-form-field {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.container form mat-error {
+  width: 40%;
+}
+
+.container form button {
+  width: 70%;
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    width: 100%;
+    flex-direction: column;
+  }
+  .container form mat-form-field {
+    width: 80%;
+  }
+}
