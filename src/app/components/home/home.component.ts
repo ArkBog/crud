@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CustomersDatabaseService } from 'src/app/services/customers-database.service';
 import { DialogComponent } from '../customer-database/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ChangeTabService } from 'src/app/services/change-tab.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  constructor(private customerDatabaseService: CustomersDatabaseService, public dialog: MatDialog){}
+  constructor(private customerDatabaseService: CustomersDatabaseService, public dialog: MatDialog, private changeTab: ChangeTabService){}
 
   customersQuantity(){
     let customers = this.customerDatabaseService.customersDatabase.length;
@@ -22,6 +23,11 @@ export class HomeComponent {
       exitAnimationDuration,
     });
     this.customerDatabaseService.customerUpdating = false;
+  }
+
+  changeTabFn(){
+    this.changeTab.cardIndex = 1;
+    this.changeTab.newTabFunction()
   }
 
 }

@@ -7,7 +7,7 @@
     You have <strong>{{customersQuantity()}}</strong> customers in your database.<br />
     What do you want to do?
     <div class="buttons-container">
-      <button mat-raised-button>Explore database</button>
+      <button mat-raised-button (click)="changeTabFn()">Explore database</button>
       <button mat-raised-button color="primary" (click)="openDialog('500ms', '500ms')">Add new customer</button>
     </div>
   </div>

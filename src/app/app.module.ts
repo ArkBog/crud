@@ -23,8 +23,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './components/customer-database/dialog/dialog.component';
 import { LoginComponent } from './components/login/login.component';
-import { AuthGuard } from './auth.guard';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -59,7 +59,7 @@ import { AuthService } from './services/auth.service';
     MatIconModule,
     MatDialogModule,
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

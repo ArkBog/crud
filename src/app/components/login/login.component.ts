@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 interface User {
@@ -19,7 +20,7 @@ interface User {
 
 export class LoginComponent {
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, private readonly router:Router){}
 
   
 
@@ -39,9 +40,9 @@ export class LoginComponent {
         this.authService.user = this.users[i];
         this.authService.userIsLogged = true;
         console.log(this.authService.userIsLogged)
-
       }
     }
+    this.router.navigate(['/dashboard']);
   }
   
 

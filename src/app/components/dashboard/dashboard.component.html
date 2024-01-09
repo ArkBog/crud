@@ -1,7 +1,8 @@
 
-<mat-tab-group>
+<mat-tab-group [(selectedIndex)]="selectedTabIndex">
     <mat-tab label="Home"><app-home></app-home></mat-tab>
     <mat-tab label="Database"><app-customer-database></app-customer-database></mat-tab>
     <mat-tab label="Add user"> <app-add-user></app-add-user></mat-tab>
 </mat-tab-group>
+
   
