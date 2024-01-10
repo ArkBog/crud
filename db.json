@@ -2,32 +2,32 @@
   "customers": [
     {
       "id": 1,
-      "name": "Jan",
+      "name": "Marian",
       "surname": "Kowalski",
       "adress": "Ul. Lwowska 5/14 Kraków",
       "postalCode": 30000,
       "status": "finished",
-      "comments": "lorem ipsum",
-      "employeeId": 1
+      "comments": "",
+      "employeeId": 0
     },
     {
       "id": 2,
-      "name": "Jan",
+      "name": "Andrej",
       "surname": "Kowalski",
       "adress": "Ul. Lwowska 5/14 Kraków",
       "postalCode": 30000,
       "status": "finished",
-      "comments": "lorem ipsum",
+      "comments": "",
       "employeeId": 1
     },
     {
       "id": 3,
-      "name": "Jan",
+      "name": "Stefania",
       "surname": "Kowalski",
       "adress": "Ul. Lwowska 5/14 Kraków",
       "postalCode": 30000,
       "status": "finished",
-      "comments": "lorem ipsum",
+      "comments": "",
       "employeeId": 1
     },
     {
@@ -49,9 +49,29 @@
       "status": "inWork",
       "comments": "",
       "employeeId": 1
+    },
+    {
+      "name": "aaaaa",
+      "surname": "asda",
+      "adress": "aaa",
+      "postalCode": "32145",
+      "status": "finished",
+      "comments": "",
+      "employeeId": 0,
+      "id": 6
+    },
+    {
+      "name": "eee",
+      "surname": "aaaa",
+      "adress": "asd",
+      "postalCode": "12341",
+      "status": "finished",
+      "comments": "",
+      "employeeId": 1,
+      "id": 7
     }
   ],
-  "users":[
+  "users": [
     {
       "login": "test0",
       "password": "test",

@@ -24,6 +24,7 @@ export class CustomersDatabaseService {
   customerValue = {};
   customerUpdating: boolean = false;
   customersDatabase = [];
+  customersQuantity!: number;
 
   private updateViewSource = new Subject<void>();
   updatedView = this.updateViewSource.asObservable();

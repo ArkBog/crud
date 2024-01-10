@@ -13,7 +13,7 @@ export class HomeComponent {
   constructor(private customerDatabaseService: CustomersDatabaseService, public dialog: MatDialog, private changeTab: ChangeTabService){}
 
   customersQuantity(){
-    let customers = this.customerDatabaseService.customersDatabase.length;
+    let customers = this.customerDatabaseService.customersQuantity;
     return customers
   }
 

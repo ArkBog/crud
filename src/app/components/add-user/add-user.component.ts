@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { CustomersDatabaseService } from 'src/app/services/customers-database.service';
 import { Customer } from 'src/app/interfaces';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-add-user',
@@ -15,7 +16,8 @@ import { Customer } from 'src/app/interfaces';
 })
 export class AddUserComponent {
 
-  constructor(private customersDatabaseService: CustomersDatabaseService){}
+  constructor(private customersDatabaseService: CustomersDatabaseService, private authService: AuthService){}
+
 
   customer = new FormGroup({
     name: new FormControl ('', [
@@ -55,8 +57,9 @@ export class AddUserComponent {
     employeeId: 0
   }
   id: number = 0;
-  employeeId: number = 0;
-  customers = this.customersDatabaseService.customersDatabase
+  customers = this.customersDatabaseService.customersDatabase;
+  employeeId = this.authService.employeeId;
+
 
 
   onSubmit(){

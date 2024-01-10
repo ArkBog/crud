@@ -38,6 +38,7 @@ export class LoginComponent {
     for(let i = 0; i < this.users.length; i++){
       if(this.users[i].login === login && this.users[i].password === password){
         this.authService.user = this.users[i];
+        this.authService.employeeId = this.authService.user.employeeId;
         this.authService.userIsLogged = true;
         console.log(this.authService.userIsLogged)
       }

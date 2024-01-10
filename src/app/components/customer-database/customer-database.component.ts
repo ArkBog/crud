@@ -7,6 +7,7 @@ import { CustomersDatabaseService } from 'src/app/services/customers-database.se
 import { AddUserComponent } from '../add-user/add-user.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class CustomerDatabaseComponent implements AfterViewInit, OnDestroy {
   customers: any = [];
   private subscription: Subscription;
 
-  constructor(private customersDatabaseService: CustomersDatabaseService, public dialog: MatDialog) {
+  constructor(private customersDatabaseService: CustomersDatabaseService, public dialog: MatDialog, private authService: AuthService) {
     this.subscription = this.customersDatabaseService.updatedView.subscribe(()=>{
       this.loadData()
     })
@@ -55,7 +56,8 @@ export class CustomerDatabaseComponent implements AfterViewInit, OnDestroy {
 
   loadData(){
     this.customersDatabaseService.getCustomers().subscribe((data: any) => {
-      this.customers = data;
+      this.customers = data.filter((e:any) => e.employeeId === this.authService.employeeId);
+      this.customersDatabaseService.customersQuantity = this.customers.length
       this.dataSource.data = this.customers;
       this.customersDatabaseService.customersDatabase = data;
     });
