@@ -79,7 +79,8 @@ export class AddUserComponent {
           next: (data) => console.log(data),
           error: (err) => {console.log(err)}
         });
-        this.customersDatabaseService.customerUpdating = false
+        this.customersDatabaseService.customerUpdating = false;
+        this.customersDatabaseService.openSnackBar('Customer updated');
       }
       else{
         this.customerData = {
@@ -95,7 +96,9 @@ export class AddUserComponent {
           next: (data) => console.log(data),
           error: (err) => {console.log(err)}
         })
+        this.customersDatabaseService.openSnackBar('Customer added');
       }
+      
     }
     this.runUpdateView()
   }

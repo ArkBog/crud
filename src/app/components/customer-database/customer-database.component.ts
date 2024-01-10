@@ -80,7 +80,8 @@ export class CustomerDatabaseComponent implements AfterViewInit, OnDestroy {
       next: (data) => console.log(data),
       error: (err) => {console.log(err)}
     });
-    this.loadData()
+    this.loadData();
+    this.customersDatabaseService.openSnackBar('Customer deleted')
   }
 }
 

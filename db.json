@@ -11,16 +11,6 @@
       "employeeId": 0
     },
     {
-      "id": 2,
-      "name": "Andrej",
-      "surname": "Kowalski",
-      "adress": "Ul. Lwowska 5/14 Kraków",
-      "postalCode": 30000,
-      "status": "finished",
-      "comments": "",
-      "employeeId": 1
-    },
-    {
       "id": 3,
       "name": "Stefania",
       "surname": "Kowalski",
@@ -61,14 +51,24 @@
       "id": 6
     },
     {
-      "name": "eee",
-      "surname": "aaaa",
-      "adress": "asd",
+      "id": 7,
+      "name": "aaaa",
+      "surname": "eeee",
+      "adress": "asfda",
       "postalCode": "12341",
+      "status": "inWork",
+      "comments": "",
+      "employeeId": 1
+    },
+    {
+      "name": "asdg",
+      "surname": "adsf",
+      "adress": "asdf",
+      "postalCode": "12345",
       "status": "finished",
       "comments": "",
       "employeeId": 1,
-      "id": 7
+      "id": 8
     }
   ],
   "users": [

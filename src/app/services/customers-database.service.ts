@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Customer } from '../interfaces';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,7 @@ export class CustomersDatabaseService {
   private updateViewSource = new Subject<void>();
   updatedView = this.updateViewSource.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _snackBar: MatSnackBar) { }
 
   getCustomers(){
     return this.http.get("http://localhost:3000/customers")
@@ -52,7 +53,11 @@ export class CustomersDatabaseService {
     return this.http.post('http://localhost:3000/customers', body)
   }
 
-
+  openSnackBar(message:string) {
+    this._snackBar.open(message);this._snackBar.open(message, '', {
+      duration: 3000,
+    });
+  }
 
 }
 

@@ -23,8 +23,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './components/customer-database/dialog/dialog.component';
 import { LoginComponent } from './components/login/login.component';
-import { AuthService } from './services/auth.service';
 import { AuthGuard } from './auth.guard';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 
@@ -58,6 +59,7 @@ import { AuthGuard } from './auth.guard';
     MatSortModule,
     MatIconModule,
     MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
